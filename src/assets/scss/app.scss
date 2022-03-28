@@ -1,0 +1,241 @@
+*{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &.logo{
+        font-weight: 600 !important;
+        font-size: 24px;
+    }
+    display: flex;
+    span{
+        margin: auto 0px;
+    }
+}
+.sltHeader{
+    &::before{
+        border-bottom: 0px !important;
+    }
+    
+}
+.CountBox{
+    position: relative;
+    .Count{
+        position: absolute;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: red;
+        text-align: center;
+        color: white;
+        right: -25%;
+        top: -25%;
+    }
+}
+
+.HuyNguVl{
+    div{
+        &:nt-child(3) {
+            width: 100% !important;
+        }
+    }
+}
+#listMenuHeader{
+    button{
+        font-weight: 600;
+        &:hover {
+            color: red;
+        }
+    }
+    a{
+        color: white;
+        &:hover {
+            color: red;
+        }
+    }
+}
+.MultiMenu{
+    position: relative;
+    &:hover {
+        .subMenu{
+            top: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: all .5s;
+            z-index: 9999;
+        }
+    }
+    .subMenu{
+        margin: 0;
+        background: #fff;
+        color: black;
+        text-align: left;
+        list-style: none;
+        padding: 0px;
+        position: absolute;
+        width: max-content;
+        visibility: hidden;
+        opacity: 0;
+        left: 0px;
+        top: 150px;
+        li{
+            padding: 5px 15px;
+            font-weight: 500;
+            text-transform: capitalize;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}
+
+.btnCardMenu{
+    position: relative;
+    .cardTop{
+        position: absolute;
+        display: inline-block;
+        width: fit-content;
+        height: unset;
+        top: -25%;
+        span{
+            font-size: 9px;
+        }
+    }
+}
+.slideShow{
+    position: relative;
+    .item{
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s;
+        width: 100%;
+        &.show{
+            visibility: visible;
+            opacity: 1;
+            transition: all .5s;
+        }
+        .disc{
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0px;
+            color: white;
+            &>div{
+                padding: 70px;
+            }
+            h2{
+                font-size: 1.5rem;
+                margin-bottom: 0px;
+                margin-top: 15px;
+                &.show{
+                    margin-top: 0px;
+                    margin-bottom: 15px;
+                    transition: all 1s;
+                }
+            }
+            .discription{
+                margin-top: 100px;
+                &.show{
+                    margin-top: 0px;
+                    transition: all 1.5s;
+                }
+            }
+            button{
+                margin-top: 100px;
+                &.show{
+                    margin-top: 15px;
+                    transition: all 2s;
+                }
+            }
+        }
+    }
+}
+
+.circleRightS{
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    text-align: center;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-left: auto;
+    transform: rotate(90deg);
+    &.show{
+        transform: rotate(0);
+        transition: all 1s;
+    }
+    &>div{
+        display: flex;
+        align-items: center;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 50%;
+        border: 1px solid white;
+        margin: auto;
+        &>div{
+            width: 100%;
+        }
+    }
+    p{
+        margin-bottom: 7px;
+    }
+}
+.listFeature{
+    &>div{
+        padding: 17px 0px;
+        display: flex;
+        &>div{
+            display: flex;
+        }
+        span{
+            align-self: center;
+            font-weight: 600;
+        }
+        &:nth-child(2){
+            background-color: #f51167;
+            color: white;
+            &>div{
+                margin: 0px auto;
+            }
+            
+        }
+        &:first-child{
+            background-color: rgb(238, 238, 238);
+        }
+        &:last-child{
+            background-color: rgb(238, 238, 238);
+            &>div{
+                margin-left: auto;
+            }
+        }
+        
+        
+    }
+}
+.each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }
+  .LatestProduct{
+      .default-nav{
+          display: none !important;
+      }
+  }
