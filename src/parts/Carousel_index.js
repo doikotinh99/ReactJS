@@ -42,8 +42,8 @@ function Carousel(){
     }}>
       {
         dataSlide.map((data, index)=>
-          <Box className={['item', index == indexSlide && 'show']} key={index}>
-            <img style={{width: '100%'}} src={data.path} />
+          <Box className={['item', index === indexSlide && 'show']} key={index}>
+            <img style={{width: '100%'}} src={data.path} alt="" />
             <Box className={["disc"]}>
               <Container sx={{
                 maxWidth:{
@@ -71,18 +71,18 @@ function Carousel(){
                   }}
                 >
                   <Item>
-                    <h2 className={index == indexSlide ? 'show' : 'hiddent'}>{data.title}</h2>
-                    <p className={index == indexSlide ? 'discription show' : 'discription hiddent'}>{data.discription}</p>
-                    <Button className={index == indexSlide ? 'show' : 'hiddent'} sx={{mr:'15px'}} variant="outlined" color="inherit" size="large">
+                    <h2 className={index === indexSlide ? 'show' : 'hiddent'}>{data.title}</h2>
+                    <p className={index === indexSlide ? 'discription show' : 'discription hiddent'}>{data.discription}</p>
+                    <Button className={index === indexSlide ? 'show' : 'hiddent'} sx={{mr:'15px'}} variant="outlined" color="inherit" size="large">
                     BUY NOW
                     </Button>
-                    <Button sx={{color: 'black'}} className={index == indexSlide ? 'show' : 'hiddent'} variant="contained" color="inherit" size="large">
+                    <Button sx={{color: 'black'}} className={index === indexSlide ? 'show' : 'hiddent'} variant="contained" color="inherit" size="large">
                     INQUIRE
                     </Button>
                     
                   </Item>
                   <Item>
-                    <Box className={["circleRightS", index == indexSlide ? 'show' : 'hiddent']}>
+                    <Box className={["circleRightS", index === indexSlide ? 'show' : 'hiddent']}>
                       <div>
                         <div>
                           <p>From</p>

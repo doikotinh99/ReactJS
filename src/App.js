@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from './parts/Header.js'
 import Footer from './parts/Footer.js'
 import Home from './pages/Home'
-import Login from './pages/Login'
 import Carousel from './parts/Carousel_index'
 
 // scss

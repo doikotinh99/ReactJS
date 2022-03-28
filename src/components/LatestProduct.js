@@ -18,7 +18,6 @@ const Slideshow = () => {
     const fadeProperties = {
         duration: 3000,
         pauseOnHover: true,
-        duration: 3000,
         slidesToShow: 4,
         slidesToScroll: 1,
         indicators: false
