@@ -96,8 +96,7 @@ function Header(){
                         },
                         gap: 0,
                         width:'100%'
-                    }}
-                    >
+                    }}>
                         <Item sx={{pl:'0 !important', alignSelf: 'center'}}>
                             <Link to="/" className="logo">RVM SeaMaf</Link>
                         </Item>
@@ -119,10 +118,10 @@ function Header(){
                                 </NativeSelect>
                             </FormControl>
                             <Box sx={{px: '15px', m: 'auto 0px'}}>
-                                <Link to='/wl'><FavoriteBorderIcon sx={{fontSize: '26px'}} /><span>Wishlist</span></Link>
+                                <Link to='/wl' style={{display: 'flex'}}><FavoriteBorderIcon sx={{fontSize: '26px'}} /><span>Wishlist</span></Link>
                             </Box>
                             <Box sx={{pl: '15px', pr: '0!important', m: 'auto 0px'}}>
-                                <Link to='sc'>
+                                <Link to='sc' style={{display: 'flex'}}>
                                 <Stack spacing={2} direction="row">
                                     <Badge badgeContent={4} color="error">
                                         <LocalMallOutlinedIcon  sx={{fontSize: '26px'}} color="action" />

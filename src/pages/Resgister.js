@@ -8,13 +8,14 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { pink } from '@mui/material/colors';
+import PersonIcon from '@mui/icons-material/Person';
 import { Link } from "react-router-dom";
 //component
 import Item from '../components/Item'
 import { Button } from "@mui/material";
-function Login(){
+function Register(){
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    document.title = "Login"
+    document.title = "Register"
     return (
         <Container sx={{
             maxWidth:{
@@ -52,33 +53,33 @@ function Login(){
                 <Item sx={{p:'70px 50px !important'}}>
                     <h2 style={{textAlign:"center", fontSize: '1.5rem', fontWeight: '700'}}>Login to your account</h2>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
+                        <PersonIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
+                        <TextField type="text" sx={{width: "100%"}} id="input-name-regist" label="Name" variant="standard" />
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
                         <EmailIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
-                        <TextField type="email" sx={{width: "100%"}} id="input-with-sx" label="Email Address" variant="standard" />
+                        <TextField type="email" sx={{width: "100%"}} id="input-email-regist" label="Email Address" variant="standard" />
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
                         <VpnKeyIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
                         <TextField type="password" sx={{width: "100%"}} id="input-pass-login" label="Password" variant="standard" />
                     </Box>
-                    <FormGroup sx={{mb:"15px"}}>
-                        <FormControlLabel control={<Checkbox sx={{
-                            color: pink[800],
-                            '&.Mui-checked': {
-                                color: pink[600],
-                            },
-                            }} />} label="Remember me" />
-                    </FormGroup>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
+                        <VpnKeyIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
+                        <TextField type="password" sx={{width: "100%"}} id="input-conFpass-regist" label="Confirm Password" variant="standard" />
+                    </Box>
                     <Button sx={{
                         width: '100%',
                         p: "11px",
                         fontWeight: '700',
                         bgcolor: '#f51167',
                         mb: '15px'
-                    }} color="error" variant="contained" >Login</Button>
+                    }} color="error" variant="contained">Sign-up</Button>
                     <Box sx={{textAlign: 'right', mb: '15px'}}>
                         <a style={{display: "inline-block", color: '#007bff', fontWeight: '700'}} href="/">Forgot Password?</a>
                     </Box>
                     <Box sx={{textAlign: 'center', mb: '15px'}}>
-                        <span>or login with</span>
+                        <span>or register with</span>
                     </Box>
                     <Box sx={{
                         p: 0,
@@ -108,8 +109,8 @@ function Login(){
                     </Box>
                     <hr />
                     <Box sx={{textAlign: 'center', mt: "25px"}}>
-                        <p style={{marginBottom:"15px"}}>Check out as a guest? <a href="/" style={{color: '#007bff', fontWeight: 'bold'}}>Click Here</a></p>
-                        <p>Don't have an account? <Link to="/regist" style={{color: '#007bff', fontWeight: 'bold'}}>Register Here</Link></p>
+                    
+                        <p style={{marginBottom:"15px"}}>Already have an account? <Link to="/login" style={{color: '#007bff', fontWeight: 'bold'}}>Login Here</Link></p>
                     </Box>
                 </Item>
             </Box>
@@ -117,7 +118,4 @@ function Login(){
     )
 }
 
-export default Login
-
-// react/product/id
-// laravel react => domain, product => action, id=> param 
+export default Register

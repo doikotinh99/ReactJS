@@ -5,24 +5,17 @@ import axios from 'axios'
 
 import 'react-slideshow-image/dist/styles.css'
 import { Container } from '@mui/material';
-const slideImages = [
-  'upload/images/sp1.webp',
-  'upload/images/sp2.webp',
-  'upload/images/sp3.webp',
-  'upload/images/sp4.webp',
-  'upload/images/sp5.webp',
-  'upload/images/sp6.webp',
-];
 
-const Slideshow = () => {
+const SimilarProduct = ({id}) => {
     const [dataProducts, setDataProducts] = React.useState([])
-    React.useLayoutEffect(()=>{
-        axios.get('http://localhost:8000/api/product/new')
+    React.useEffect(()=>{
+        axios.get(`http://localhost:8000/api/product-similar/${id}`)
         .then((response) => response)
         .then(function (data) {
+            console.log(data.data)
             setDataProducts(data.data)
         });
-    }, []);
+    }, [id]);
     const fadeProperties = {
         duration: 3000,
         pauseOnHover: true,
@@ -67,4 +60,4 @@ const Slideshow = () => {
     )
 };
 
-export default Slideshow;
+export default SimilarProduct;

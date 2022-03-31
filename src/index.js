@@ -1,11 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Admin from './Admin'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Resgister'
+import Error from './components/404'
+import ShowProduct from './components/admin/ShowPrd'
+import AddProduct from './components/admin/AddProduct'
+import Category from './components/admin/Category'
+import Cart from './components/admin/Cart'
+import AllProduct from './components/AllProduct'
+import ProductDetail from './components/ProductDetail'
+import ListProducts from './components/ListProducts';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="regist" element={<Register />} />
+          <Route path="product" element={<AllProduct />}>
+            <Route path="" element={<ListProducts />} />
+            <Route path=":slug" element={<ProductDetail />} />
+          </Route>
+          <Route path="*" element={<Error />} />
+        </Route>
+
+        <Route path="/admin" element={<Admin />}>
+          <Route path="product" element={<ShowProduct />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="category" element={<Category />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
+      
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -106,8 +106,8 @@ export default function ButtonAppBar() {
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Our Services</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Blog</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Contact</Button>   
-                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Signin</Button>   
-                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Signup</Button>   
+                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/login">Signin</Link></Button>   
+                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/regist">Signup</Link></Button>   
                     </ButtonGroup>
                 </Box>
                 </Typography>

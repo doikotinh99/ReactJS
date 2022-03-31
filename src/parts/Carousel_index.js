@@ -19,7 +19,7 @@ function Carousel(){
     }
     
   ]
-
+  
   const [indexSlide, setIndexSlide] = React.useState(0)
 
   React.useEffect(()=>{

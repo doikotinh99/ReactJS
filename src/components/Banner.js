@@ -9,13 +9,15 @@ function Banner({title, disc, color, path}){
     return (
         <Box className="Banner">
             <img style={{width: '100%'}} src={path} />
-            <div>
-                <h5>{title}</h5>
-                <h3>{disc}</h3>
-                <Button>SHOW NOW</Button>
+            <div className="BannerBody">
+                <h3>{title}</h3>
+                <h5>{disc}</h5>
+                <Button variant="contained" sx={{bgcolor:'#f51167', mt:'9px'}}>
+                SHOW NOW
+                </Button>
             </div>
-            <Stack direction="row" spacing={1}>
-                <Chip label="primary" color={color} />
+            <Stack className="bannerChip" direction="row" spacing={1}>
+                <Chip label="New" color={color} />
             </Stack>
         </Box>
     )
