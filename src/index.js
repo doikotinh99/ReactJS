@@ -16,6 +16,9 @@ import Cart from './components/admin/Cart'
 import AllProduct from './components/AllProduct'
 import ProductDetail from './components/ProductDetail'
 import ListProducts from './components/ListProducts';
+import CartUser from './pages/Cart'
+import ListSearch from './components/ListSearch';
+import EditProduct from './components/admin/EditProduct'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -25,9 +28,14 @@ ReactDOM.render(
           <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="regist" element={<Register />} />
+          <Route path="cart-user" element={<CartUser />} />
           <Route path="product" element={<AllProduct />}>
             <Route path="" element={<ListProducts />} />
             <Route path=":slug" element={<ProductDetail />} />
+          </Route>
+          <Route path="search" element={<Outlet />}>
+            <Route path="" element={<ListProducts />} />
+            <Route path=":key" element={<ListSearch />} />
           </Route>
           <Route path="*" element={<Error />} />
         </Route>
@@ -35,6 +43,10 @@ ReactDOM.render(
         <Route path="/admin" element={<Admin />}>
           <Route path="product" element={<ShowProduct />} />
           <Route path="add-product" element={<AddProduct />} />
+          <Route path="edit-product" element={<Outlet />}>
+            <Route path="" element={<AddProduct />} />
+            <Route path=":id" element={<EditProduct />} />
+          </Route>
           <Route path="category" element={<Category />} />
           <Route path="cart" element={<Cart />} />
           <Route path="*" element={<Error />} />

@@ -12,7 +12,6 @@ const SimilarProduct = ({id}) => {
         axios.get(`http://localhost:8000/api/product-similar/${id}`)
         .then((response) => response)
         .then(function (data) {
-            console.log(data.data)
             setDataProducts(data.data)
         });
     }, [id]);
@@ -52,7 +51,7 @@ const SimilarProduct = ({id}) => {
         <Slide className="LatestProduct" easing="ease" {...fadeProperties}>
           {dataProducts.map((prd)=>
             <div style={style} key={prd.code}>
-              <ActionAreaCard name={prd.name} image={'http://localhost:8000/' + prd.images} price={prd.price} news hots={prd.is_top} slug={prd.slug} />
+              <ActionAreaCard name={prd.name} image={'http://localhost:8000/' + prd.images} price={prd.price} news hots={prd.is_top} slug={prd.slug} id={prd.id} />
             </div>
           )}
         </Slide>

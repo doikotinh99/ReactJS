@@ -9,6 +9,7 @@ import Item from '../components/Item'
 import Banner from '../components/Banner'
 import TopSelling from '../components/TopSelling'
 import Carousel from '../parts/Carousel_index'
+import axios from "axios";
 
 function Home(){
     document.title = "RVM SeaMaf | Online & physical bead shop with the best beads and beading supplies in Zimbabwe ✓ Over 9000 beads for jewelry making ✓ Glass beads ✓ Beading supplies and much more!"

@@ -10,19 +10,35 @@ import {  Container } from '@mui/material';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from "react-router-dom";
 import Chip from '@mui/material/Chip';
+import { axiosAuth, axiosInstance } from "../utills/axios";
 
+import UserBtn from '../components/UserBtn'
 export default function ButtonAppBar() {
     const [actionBtn, setActionBtn] = React.useState(window.innerWidth > 960 ? true : false);
-
+    const [user, setUser] = React.useState(false);
+    
+    
     React.useEffect(()=>{
         const handleWidth = ()=>window.innerWidth > 900 ? setActionBtn(true) : setActionBtn(false)
         window.addEventListener('resize', handleWidth)
-
         return ()=>{
             window.removeEventListener('resize', handleWidth)
         }
-    })
+    }, [actionBtn])
+    const [token, setToken] = React.useState(window.localStorage.getItem('token'));
 
+    setInterval(()=>{
+        if(window.localStorage.getItem('token') !== token){
+            setToken(window.localStorage.getItem('token'))
+        }
+    }, 3000)
+    React.useEffect(()=>{
+        if(token !== 'false'){
+            axiosAuth.get('http://localhost:8000/api/this-user')
+            .catch((error)=>console.log(error))
+            .then((response) => setUser(response))
+        }
+    }, [token])
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -106,8 +122,11 @@ export default function ButtonAppBar() {
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Our Services</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Blog</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Contact</Button>   
-                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/login">Signin</Link></Button>   
-                        <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/regist">Signup</Link></Button>   
+                        {user ?  (<UserBtn name={user['data'].user.name} />) : <React.Fragment>
+                            <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/login">Signin</Link></Button>   
+                            <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/regist">Signup</Link></Button>  
+                        </React.Fragment> }
+                        
                     </ButtonGroup>
                 </Box>
                 </Typography>

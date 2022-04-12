@@ -8,14 +8,25 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {styled} from '@mui/material'
 import { Link } from "react-router-dom";
+import { axiosAuth, axiosInstance } from "../utills/axios";
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-export default function ActionAreaCard({image, price, name, news, hots, slug}) {
+export default function ActionAreaCard({image, price, name, news, hots, slug, id}) {
   const StyleLink = styled(Link)(({theme})=>({
       color: "black",
       display: 'block'
   }))
+  const user = JSON.parse(window.localStorage.getItem('user'))
+  const user_id = user.id
+  const addToCart = ()=>{
+    axiosInstance.post('http://localhost:8000/api/cart', {user_id: user_id, product_id: id})
+    .catch((error)=> console.log(error))
+    .then((response)=>{
+      let dom = document.getElementById('badge_header').children[1].innerText = response['data'] - 1;
+      console.log({dom})
+    })
+  }
   return (
     
     <Card sx={{ maxWidth: 345 , boxShadow: 0}}>
@@ -44,7 +55,7 @@ export default function ActionAreaCard({image, price, name, news, hots, slug}) {
           </CardContent>
         </StyleLink>
         <Box className="btnBoxCard">
-          <div style={{display: 'flex'}}><AddShoppingCartIcon /> <span className='text'>ADD TO CART</span></div>
+          <div onClick={addToCart} style={{display: 'flex'}}><AddShoppingCartIcon /> <span className='text'>ADD TO CART</span></div>
           <span><FavoriteIcon /></span>
         </Box>
         {news && 

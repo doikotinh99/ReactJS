@@ -25,7 +25,7 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 function SideBar(){
     const [open, setOpen] = React.useState(false);
-
+    const user = JSON.parse(window.localStorage.getItem("user"))
     const StyleIcon = styled(ListItemIcon)(({theme})=>({
         '& svg': {
             color: "white"
@@ -79,7 +79,7 @@ function SideBar(){
                         <StyleIcon>
                         <AccountCircleIcon />
                         </StyleIcon>
-                        <ListItemText primary="Name user" />
+                        <ListItemText primary={user.name} />
                         {open === 1 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open === 1} timeout="auto" unmountOnExit>
@@ -98,7 +98,10 @@ function SideBar(){
                                 <StyleIcon>
                                 <LogoutIcon />
                                 </StyleIcon>
-                                <ListItemText primary="Logout" />
+                                <ListItemText primary="Logout" onClick={()=>{
+                                    window.localStorage.setItem('token', false)
+                                    return window.location.replace("/");
+                                }} />
                             </ListItemButton>
                         </List>
                     </Collapse>

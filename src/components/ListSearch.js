@@ -1,21 +1,22 @@
-import { Container } from "@mui/material";
 import React from "react";
-import Box from '@mui/material/Box';
-import axios from 'axios'
-
-import Item from '../components/Item'
+import { useParams, Link } from 'react-router-dom'
+import { axiosAuth, axiosInstance } from "../utills/axios";
 import ActionAreaCard from '../components/Card'
-function TopSelling(){
+import Box from '@mui/material/Box';
+import Item from '../components/Item'
+import { Container } from "@mui/material";
+function ListSearch(){
+    const params = useParams()
     const [dataProducts, setDataProducts] = React.useState([])
     React.useLayoutEffect(()=>{
-        axios.get('http://localhost:8000/api/product/hot')
-        .then((response) => response)
-        .then(function (data) {
-            setDataProducts(data.data)
-        });
-    }, []);
+        axiosInstance.get(`http://localhost:8000/api/search/${params.key}/0`)
+        .then(res => {
+            setDataProducts(res['data'].product)
+        })
+    }, [params]);
     return (
-        <Container sx={{
+        <React.Fragment>
+            <Container sx={{
             maxWidth:{
                 lg:"1240px",
                 md:'960px',
@@ -30,8 +31,7 @@ function TopSelling(){
             },
             mt: '15px'
         }}>
-            <h2 style={{fontSize:"1.5rem", textAlign: 'center', marginBottom: '15px'}}>BROWSE TOP SELLING PRODUCTS</h2>
-            <Box
+<Box
             sx={{
                 p: 0,
                 display: 'grid',
@@ -63,8 +63,9 @@ function TopSelling(){
                 )}
             </Box>
         </Container>
+            
+        </React.Fragment>
     )
-
 }
 
-export default TopSelling
+export default ListSearch

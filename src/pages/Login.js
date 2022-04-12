@@ -8,13 +8,50 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { pink } from '@mui/material/colors';
-import { Link } from "react-router-dom";
+import { Link,Redirect, useNavigate } from "react-router-dom";
 //component
 import Item from '../components/Item'
 import { Button } from "@mui/material";
+import { axiosAuth, axiosInstance } from "../utills/axios";
 function Login(){
+    const navigate = useNavigate()
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const [token, setToken] = React.useState(false)
+    const [action, setAction] = React.useState(true);
+    const [user, setUser] = React.useState(false)
     document.title = "Login"
+    const handleLogin =()=>{
+        let email = document.getElementById('email-login').value;
+        let pass = document.getElementById('pass-login').value;
+        axiosInstance.post('http://localhost:8000/api/login', {
+            email: email,
+            password : pass
+        })
+        .catch((error)=>{
+            setAction(error)
+        })
+        .then((response) => {
+            console.log(response)
+            setToken(response['data'].token)
+            token ? setUser(true) : setUser(false)
+            window.localStorage.setItem('token', response['data'].token)
+            window.localStorage.setItem('user', JSON.stringify(response['data'].user))
+            // return window.location.replace("/");
+            navigate('/')
+        })
+    }
+    console.log(window.localStorage.getItem('token'))
+    const checkUser = ()=>{
+        if(token !== false){
+            axiosAuth.get('http://localhost:8000/api/this-user')
+            .catch((error)=>console.log(error))
+            .then((response) => {
+                console.log(response);
+            })
+        }else{
+            console.log("no user");
+        }
+    }
     return (
         <Container sx={{
             maxWidth:{
@@ -53,11 +90,13 @@ function Login(){
                     <h2 style={{textAlign:"center", fontSize: '1.5rem', fontWeight: '700'}}>Login to your account</h2>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
                         <EmailIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
-                        <TextField type="email" sx={{width: "100%"}} id="input-with-sx" label="Email Address" variant="standard" />
+                        {action ? (<TextField type="email" sx={{width: "100%"}} id="email-login" label="Email Address" variant="standard" />) 
+                        : (<TextField error type="email" sx={{width: "100%"}} id="email-login" label="Email Address" variant="standard" />)}
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', mb:"15px"}}>
                         <VpnKeyIcon sx={{ color: '#f51167', mr: 1, my: 0.5 }} />
-                        <TextField type="password" sx={{width: "100%"}} id="input-pass-login" label="Password" variant="standard" />
+                        {action ? (<TextField type="password" sx={{width: "100%"}} id="pass-login" label="Password" variant="standard" />) 
+                        : (<TextField error type="password" sx={{width: "100%"}} id="pass-login" label="Password" variant="standard" />)}
                     </Box>
                     <FormGroup sx={{mb:"15px"}}>
                         <FormControlLabel control={<Checkbox sx={{
@@ -73,7 +112,7 @@ function Login(){
                         fontWeight: '700',
                         bgcolor: '#f51167',
                         mb: '15px'
-                    }} color="error" variant="contained" >Login</Button>
+                    }} color="error" variant="contained" onClick={handleLogin}>Login</Button>
                     <Box sx={{textAlign: 'right', mb: '15px'}}>
                         <a style={{display: "inline-block", color: '#007bff', fontWeight: '700'}} href="/">Forgot Password?</a>
                     </Box>
@@ -98,7 +137,10 @@ function Login(){
                         p: "7px",
                         fontWeight: '700',
                         mr: '15px'
-                        }} color="primary" variant="contained" >Facebook</Button>
+                        }} color="primary" 
+                        variant="contained"
+                        onClick={checkUser}
+                        >Facebook</Button>
                         <Button sx={{
                             width: '100%',
                             p: "7px",

@@ -12,7 +12,6 @@ import SimilarProduct from './SimilarProduct'
 function ProductDetail(){
     const params = useParams()
     const [dataProducts, setDataProducts] = React.useState([])
-    console.log(dataProducts)
     React.useLayoutEffect(()=>{
         axios.get(`http://localhost:8000/api/product/${params.slug}`)
         .then((response) => response)
@@ -36,6 +35,7 @@ function ProductDetail(){
         document.getElementById('ImgMainPrdDt').src = e.target.src
         e.target.src = srcT
     }
+    console.log(dataProducts)
     return (
         <React.Fragment>
             <Container sx={{
@@ -90,7 +90,7 @@ function ProductDetail(){
                         <h2 style={{fontSize: '1.5rem', textTransform: 'uppercase', fontWeight: '500', marginBottom: '10px'}}>{dataProducts.name}</h2>
                         <b style={{fontSize: '1.5rem', textTransform: 'uppercase', fontWeight: '800', marginBottom: '15px', display: 'inline-block'}}>{dataProducts.price}$</b>
                         <p style={{marginBottom: '15px'}}>Availability: <span style={{color: 'red'}}>{dataProducts.count > 0 ? 'In Stock' : 'Out of stock'}</span></p>
-                        <Quanlty />
+                        <Quanlty prdId={dataProducts.id} />
                         <Description data={dataProducts.description} />
                     </Item>
                 </Box>
