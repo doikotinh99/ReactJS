@@ -25,7 +25,7 @@ function Header(){
     const [countcart, setCountcart] = React.useState(0)
     const [action, setAction] = React.useState(false)
     const user = JSON.parse(window.localStorage.getItem('user'))
-    const user_id = user.id
+    const user_id = user ? user.id : false
     const token = window.localStorage.getItem('token');
     const localhost = useLocation()
     React.useEffect(()=>{
@@ -34,7 +34,7 @@ function Header(){
             .catch((error)=>console.log(error))
             .then((response) => setCountcart(response['data'].length))
         }
-    }, [action])
+    }, [action, localhost])
     return (
         <React.Fragment>
             <Grid className="TopHeader" container spacing={2} sx={{

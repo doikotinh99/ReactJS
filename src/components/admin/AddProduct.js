@@ -140,6 +140,7 @@ export default function AddProduct() {
                         onChange={e => setFile(e.target.files)}
                     />
                     </Button>
+                    
                 </Box>
                 <h5 style={{marginBottom: '9px', fontSize: '1.25rem'}}>Example textarea</h5>
                 <Box sx={{'& > :not(style)': { },  textAlign: 'center' }}>

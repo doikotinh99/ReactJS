@@ -18,7 +18,7 @@ export default function ActionAreaCard({image, price, name, news, hots, slug, id
       display: 'block'
   }))
   const user = JSON.parse(window.localStorage.getItem('user'))
-  const user_id = user.id
+  const user_id = user ? user.id : false
   const addToCart = ()=>{
     axiosInstance.post('http://localhost:8000/api/cart', {user_id: user_id, product_id: id})
     .catch((error)=> console.log(error))

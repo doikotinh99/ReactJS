@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosAuth, axiosInstance } from "../utills/axios";
-
 export default function BoxSearch(){
     const navigate = useNavigate()
     const [data, setData] = React.useState('')
@@ -40,11 +39,9 @@ export default function BoxSearch(){
                         {dataProduct.map((val)=>{
                             return <li key={val.id}><Link to={'/product/' + val.slug}>{val.name}</Link></li>
                         })}
-                        
                     </ul>
                 </div>
             </div>
         </React.Fragment>
-        
     )
 }

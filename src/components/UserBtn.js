@@ -39,8 +39,10 @@ export default function UserBtn({name}) {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         {user.is_admin === 1 && <MenuItem onClick={handleClose}><Link to='/admin'>Admin</Link></MenuItem>}
         <MenuItem onClick={()=>{
-            window.localStorage.setItem('token', false)
-            return window.location.replace("/");
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            // return window.location.replace("/");
+            navigate('/')
         }}>Logout</MenuItem>
       </Menu>
     </div>

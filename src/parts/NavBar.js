@@ -8,16 +8,17 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {  Container } from '@mui/material';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Chip from '@mui/material/Chip';
 import { axiosAuth, axiosInstance } from "../utills/axios";
 
 import UserBtn from '../components/UserBtn'
 export default function ButtonAppBar() {
     const [actionBtn, setActionBtn] = React.useState(window.innerWidth > 960 ? true : false);
-    const [user, setUser] = React.useState(false);
-    
-    
+    // const [user, setUser] = React.useState(false);
+    const user = JSON.parse(localStorage.getItem('user'))
+    const location = useLocation()
+    console.log(location)
     React.useEffect(()=>{
         const handleWidth = ()=>window.innerWidth > 900 ? setActionBtn(true) : setActionBtn(false)
         window.addEventListener('resize', handleWidth)
@@ -26,19 +27,13 @@ export default function ButtonAppBar() {
         }
     }, [actionBtn])
     const [token, setToken] = React.useState(window.localStorage.getItem('token'));
-
-    setInterval(()=>{
-        if(window.localStorage.getItem('token') !== token){
-            setToken(window.localStorage.getItem('token'))
-        }
-    }, 3000)
-    React.useEffect(()=>{
-        if(token !== 'false'){
-            axiosAuth.get('http://localhost:8000/api/this-user')
-            .catch((error)=>console.log(error))
-            .then((response) => setUser(response))
-        }
-    }, [token])
+    // React.useEffect(()=>{
+    //     if(token !== 'false'){
+    //         axiosAuth.get('http://localhost:8000/api/this-user')
+    //         .catch((error)=>console.log(error))
+    //         .then((response) => setUser(response))
+    //     }
+    // }, [token])
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -122,7 +117,7 @@ export default function ButtonAppBar() {
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Our Services</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Blog</Button>   
                         <Button sx={{color:'white', py: '11px', border: '0px !important'}}>Contact</Button>   
-                        {user ?  (<UserBtn name={user['data'].user.name} />) : <React.Fragment>
+                        {user ?  (<UserBtn name={user.name} />) : <React.Fragment>
                             <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/login">Signin</Link></Button>   
                             <Button sx={{color:'white', py: '11px', border: '0px !important'}}><Link to="/regist">Signup</Link></Button>  
                         </React.Fragment> }

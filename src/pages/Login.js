@@ -31,13 +31,16 @@ function Login(){
             setAction(error)
         })
         .then((response) => {
-            console.log(response)
             setToken(response['data'].token)
             token ? setUser(true) : setUser(false)
-            window.localStorage.setItem('token', response['data'].token)
-            window.localStorage.setItem('user', JSON.stringify(response['data'].user))
-            // return window.location.replace("/");
-            navigate('/')
+            if(response['data'].token){
+                window.localStorage.setItem('token', response['data'].token)
+                window.localStorage.setItem('user', JSON.stringify(response['data'].user))
+                navigate('/', {state: {data: response['data'].token}})
+            }else{
+                alert('Sai');
+            }
+            
         })
     }
     console.log(window.localStorage.getItem('token'))
