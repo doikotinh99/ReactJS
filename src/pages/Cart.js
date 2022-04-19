@@ -71,7 +71,7 @@ export default function CustomizedTables() {
     let sumPrice = 0;
     React.useEffect(()=>{
         if(user_id){
-            axiosAuth.get('http://localhost:8000/api/cart-user')
+            axiosAuth.get(`http://localhost:8000/api/cart-user/${user_id}`)
             .catch((error)=>console.log(error))
             .then((response) => setCart(response['data']))
         }
