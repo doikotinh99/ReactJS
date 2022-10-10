@@ -23,7 +23,8 @@ function Login(){
     const handleLogin =()=>{
         let email = document.getElementById('email-login').value;
         let pass = document.getElementById('pass-login').value;
-        axiosInstance.post('http://localhost:8000/api/login', {
+        console.log(email, pass)
+        axiosInstance.post('/api/login', {
             email: email,
             password : pass
         })
@@ -35,25 +36,12 @@ function Login(){
             token ? setUser(true) : setUser(false)
             if(response['data'].token){
                 window.localStorage.setItem('token', response['data'].token)
-                window.localStorage.setItem('user', JSON.stringify(response['data'].user))
                 navigate('/', {state: {data: response['data'].token}})
             }else{
                 alert('Sai');
             }
             
         })
-    }
-    console.log(window.localStorage.getItem('token'))
-    const checkUser = ()=>{
-        if(token !== false){
-            axiosAuth.get('http://localhost:8000/api/this-user')
-            .catch((error)=>console.log(error))
-            .then((response) => {
-                console.log(response);
-            })
-        }else{
-            console.log("no user");
-        }
     }
     return (
         <Container sx={{
@@ -87,7 +75,7 @@ function Login(){
                 borderRadius: "5px"
             }}>
                 <Item sx={{p:'0 !important'}}>
-                    <img style={{width: '100%', height: '100%'}} src="upload/images/background.jpg" />
+                    <img style={{width: '100%', maxHeight: '90vh'}} src="upload/images/background.jpeg" />
                 </Item>
                 <Item sx={{p:'70px 50px !important'}}>
                     <h2 style={{textAlign:"center", fontSize: '1.5rem', fontWeight: '700'}}>Login to your account</h2>
@@ -142,7 +130,6 @@ function Login(){
                         mr: '15px'
                         }} color="primary" 
                         variant="contained"
-                        onClick={checkUser}
                         >Facebook</Button>
                         <Button sx={{
                             width: '100%',

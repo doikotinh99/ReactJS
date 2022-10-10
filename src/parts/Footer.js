@@ -96,61 +96,30 @@ function Footer(){
                     }}>
                         <Item sx={{pl:'0 !important'}}>
                             <h3 className="titleFooter">ABOUT</h3>
-                            <p style={{marginBottom: '15px'}}>Online & physical bead shop with the best beads and beading supplies in Zimbabwe ✓ Over 9000 beads for jewelry making ✓ Glass beads ✓ Beading supplies and much more!</p>
+                            <p style={{marginBottom: '15px'}}>Chúng tôi giúp các bạn tìm nhà hàng 1 cách thuận tiện nhanh chóng và an toàn về thanh toán, và sản phẩm.</p>
                             <img style={{marginBottom: '15px'}} src="upload/images/cardpay.png" />
-                            <div className="FtSubs">
-                                <CustomInput type="email" aria-label="Demo input" placeholder="Enter e-mail" />
-                                <Button variant="text" sx={{color: 'red'}}>Subscribe</Button>
+                            <div style={{marginBottom: "15px"}} className="FtSubs">
+                                <CustomInput type="email" aria-label="Demo input" placeholder="Nhập email nhận thông báo" />
+                                <Button variant="text" sx={{color: 'red'}}>Xác nhận</Button>
                             </div>
-                        </Item>
-                        <Item sx={{pr:'0 !important'}}>
-                            <h3 className="titleFooter">USEFUL LINKS</h3>
-                            <ul className="listUseFullLink">
-                                <Box sx={{
-                                    p: 0,
-                                    display: 'grid',
-                                    gridTemplateColumns: { 
-                                        md: '1fr 1fr'
-                                    },
-                                    gap: 0,
-                                    width:'100%'
-                                }}>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />About Us</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Track Orders</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Shipping</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Contact</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />My Orders</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Support</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Terms of Use</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Privacy Policy</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Our Services</a></li>
-                                    <li><a href="/"><CircleOutlinedIcon className="icon" />Blog</a></li>
-                                </Box>
-                                
-                            </ul>
-                        </Item>
-                        <Item sx={{pl:'0 !important'}}>
-                            <h3 className="titleFooter">BLOG</h3>
-                            <CardBlog name="log1" image={slideImages[0]} />
-                            <CardBlog name="log1" image={slideImages[1]} />
                         </Item>
                         <Item sx={{pl:'0 !important'}}>
                             <h3 className="titleFooter">CONTACT</h3>
                             <div style={{marginBottom: '15px', display:'flex'}}>
                                 <span style={{color:'red', marginRight: "15px"}}>C.</span>
-                                <span style={{color:'#8f8f8f'}}>RVM SeaMaf</span>
+                                <span style={{color:'#8f8f8f'}}>Restaurant</span>
                             </div>
                             <div style={{marginBottom: '15px', display:'flex'}}>
                                 <span style={{color:'red', marginRight: "15px"}}>B.</span>
-                                <span style={{color:'#8f8f8f'}}>108 Chinhoyi Street, Central Business District, Harare Zimbabwe</span>
+                                <span style={{color:'#8f8f8f'}}>144 Xuân thủy, Cầu Giấy, HN</span>
                             </div>
                             <div style={{marginBottom: '15px', display:'flex'}}>
                                 <span style={{color:'red', marginRight: "15px"}}>T.</span>
-                                <span style={{color:'#8f8f8f'}}>+263782149840</span>
+                                <span style={{color:'#8f8f8f'}}>+84123456789</span>
                             </div>
                             <div style={{marginBottom: '15px', display:'flex'}}>
                                 <span style={{color:'red', marginRight: "15px"}}>E.</span>
-                                <span style={{color:'#8f8f8f'}}>rvmseamaf@gmail.com</span>
+                                <span style={{color:'#8f8f8f'}}>restaurant@gmail.com</span>
                             </div>
                         </Item>
                     </Box> 
@@ -197,7 +166,7 @@ function Footer(){
                     </div>
                 </Box>
             </Container>
-            <h2 style={{margin: '15px 0px', textAlign: 'center'}}>Copyright ©2022 All rights reserved | Developed By Eloquent Geeks</h2>
+            <h2 style={{margin: '15px 0px', textAlign: 'center'}}>Copyright ©2022 All rights reserved | Developed By FastTeam</h2>
         </footer>
         
         </React.Fragment>

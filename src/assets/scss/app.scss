@@ -56,13 +56,6 @@ a {
     }
 }
 
-.HuyNguVl{
-    div{
-        &:nt-child(3) {
-            width: 100% !important;
-        }
-    }
-}
 #listMenuHeader{
     button{
         font-weight: 600;
@@ -163,6 +156,8 @@ a {
                 &.show{
                     margin-top: 0px;
                     transition: all 1.5s;
+                    background-color: rgba(91, 91, 91, 0.704);
+                    text-align: justify;
                 }
             }
             button{

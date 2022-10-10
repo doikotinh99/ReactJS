@@ -6,16 +6,16 @@ import Item from "../components/Item";
 function Carousel(){
   const dataSlide = [
     {
-      title: "Event planning and Management",
+      title: "Nhà Hàng Nhật Bản Hatoyama",
       path: '/upload/images/slideshow1.webp',
-      'discription': "We do event planning management for all different types of events from weddings, birthdays ,coopera...",
-      money: '0.50$'
+      'discription': "Các nguyên liệu tại Hatoyama tươi ngon được cam kết là hải sản từ biển Nhật vận chuyển về Việt Nam chỉ trong vòng 24h, làm nên chất lượng của nhà hàng Nhật ngon nhất Hà Nội. Ngoài nguồn nguyên liệu nhập khẩu từ biển Hokkaido thì yếu tố tạo nên sự mới mẻ và những món ăn ngon tại Hatoyama còn xuất phát từ nguồn hải sản hoàn toàn khắp 28 vùng biển Việt Nam cùng các loại hải sản đẳng cấp hàng đầu thế giới tại Nhà hàng siêu thị Thế Giới Hải Sản.",
+      money: '399.000 vnd/ người'
     },
     {
-      title: "Beads",
+      title: "Hệ thống Nhà hàng Phố 79",
       path: '/upload/images/slideshow2.webp',
-      'discription': "We have a wide range of beads from hair beads, necklaces, bracelets etc",
-      money: '500$'
+      'discription': "Với lối kiến trúc Đông Dương độc đáo, sang trọng giao thoa giữa lối kiến trúc Châu Âu và đường nét truyền thống Việt Nam góp phần tôn lên nét tinh tế trong không gian ẩm thực giữa lòng Sài Gòn nhộn nhịp. Từng mảng vị trí trong nhà hàng đều được chăm chút cẩn thận, được chạm nét, sơn phủ bằng những chất liệu mang âm hưởng hoàng gia ấn tượng.",
+      money: '399.000 vnd/ người'
     }
     
   ]
@@ -74,10 +74,10 @@ function Carousel(){
                     <h2 className={index === indexSlide ? 'show' : 'hiddent'}>{data.title}</h2>
                     <p className={index === indexSlide ? 'discription show' : 'discription hiddent'}>{data.discription}</p>
                     <Button className={index === indexSlide ? 'show' : 'hiddent'} sx={{mr:'15px'}} variant="outlined" color="inherit" size="large">
-                    BUY NOW
+                    Đặt ngay
                     </Button>
-                    <Button sx={{color: 'black'}} className={index === indexSlide ? 'show' : 'hiddent'} variant="contained" color="inherit" size="large">
-                    INQUIRE
+                    <Button sx={{ background: "#f51167"}} className={index === indexSlide ? 'show' : 'hiddent'} variant="contained" color="secondary" size="large">
+                    Chi tiết
                     </Button>
                     
                   </Item>
@@ -85,9 +85,8 @@ function Carousel(){
                     <Box className={["circleRightS", index === indexSlide ? 'show' : 'hiddent']}>
                       <div>
                         <div>
-                          <p>From</p>
+                          <p>Từ</p>
                           <p>{data.money}</p>
-                          <p>SHOP NOW</p>
                         </div>
                       </div>
                     </Box>

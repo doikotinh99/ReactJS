@@ -36,19 +36,19 @@ function Features() {
                 <Item>
                     <div>
                         <PaymentIcon /> 
-                        <span>Fast Secure Payments</span>
+                        <span>Thanh toán an toàn nhanh chóng</span>
                     </div>
                 </Item>
                 <Item>
                     <div>
                         <StarBorderIcon /> 
-                        <span>Premium Products</span>
+                        <span>Sản phẩm cao cấp</span>
                     </div>
                 </Item>
                 <Item>
                     <div>
                         <LocalShippingIcon /> 
-                        <span>Affordable Delivery</span>
+                        <span>Phục vụ tận tình</span>
                     </div>
                 </Item>
                 </Box>

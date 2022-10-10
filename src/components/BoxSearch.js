@@ -33,7 +33,7 @@ export default function BoxSearch(){
                     }, 100)
                     }} 
                 onKeyUp={e=>keyPress(e)}
-                value={data} onChange={e => setData(e.target.value)} placeholder='Search on RVM SeaMaf ....' />
+                value={data} onChange={e => setData(e.target.value)} placeholder='Search on Restaurant ....' />
                 <div id="listDataS" className="listSearch">
                     <ul>
                         {dataProduct.map((val)=>{

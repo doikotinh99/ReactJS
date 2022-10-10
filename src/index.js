@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +16,6 @@ import Cart from './components/admin/Cart'
 import AllProduct from './components/AllProduct'
 import ProductDetail from './components/ProductDetail'
 import ListProducts from './components/ListProducts';
-import CartUser from './pages/Cart'
 import ListSearch from './components/ListSearch';
 import EditProduct from './components/admin/EditProduct'
 ReactDOM.render(
@@ -28,7 +27,6 @@ ReactDOM.render(
           <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="regist" element={<Register />} />
-          <Route path="cart-user" element={<CartUser />} />
           <Route path="product" element={<AllProduct />}>
             <Route path="" element={<ListProducts />} />
             <Route path=":slug" element={<ProductDetail />} />
@@ -52,7 +50,7 @@ ReactDOM.render(
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
-      
+
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -75,7 +75,6 @@ export default function CustomizedTables() {
             .catch((error)=>console.log(error))
             .then((response) => setCart(response['data']))
         }
-        
     }, [])
     const actionPrice = (e)=>{
         setAction(!action)
